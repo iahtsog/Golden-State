@@ -1,0 +1,92 @@
+
+.body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('image.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -8;
+}
+.container{
+margin-left: auto;
+margin-right: auto;
+width: 1000px;
+}
+.container img{
+margin-right: 50px;
+}
+.div{
+    display: flex;
+}
+.menu{
+    position: fixed ;
+    top: 33%;
+
+}
+.wikitable sortable plainrowheaders jquery-tablesorter{
+}
+.box{
+    height: 6%;
+    width: auto;
+    background-color:#7aa7ff;
+    display: flex;
+    border-radius: 20px;
+}
+
+.search{
+    margin-left: 60pc;
+}
+#img2{
+    display: flex;
+}
+#img1{
+    margin-left: 15px;
+}
+#hr, img{
+    display: flex;
+}
+/* †††††† */
+.search{
+    margin-left: auto;
+    margin-right: auto;
+}
+.p, h3, h2 {
+    color: rgb(0, 0, 0);
+}
+.table{
+    margin-bottom: 15px;
+}
+#Donate{
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+}
+#NBA{
+    color: rgb(0, 0, 0);
+    font-size: 2pc;
+    margin-bottom: auto;
+    margin-top: auto;
+    background-attachment: fixed;
+
+
+}
+.boxm{
+    width: auto;
+    height: 10pc;
+    color: black;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+.philanthropy{
+    font-size: 3pc;
+}
+.State{
+    color: blue;
+    font-size: 25px;
+}

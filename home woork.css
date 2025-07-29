@@ -1,0 +1,38 @@
+#form{
+     border: 1px solid #ebebeb;
+    width: 350px ;
+    padding: 30px ;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10pc;
+}
+#form input{
+    width: 100% ;
+    margin-bottom: 10px ;
+    padding: 10px ;
+    
+}
+*{
+    box-sizing: border-box ;
+}
+#input{ 
+    background-color: rgb(38, 219, 38);
+    border-radius: 10px;
+    font-size: 15px;
+}
+#div{
+    display:flex;
+}
+.col-md-3{
+    margin-left: auto;
+    margin-right: auto;
+}
+#log {
+    margin-right: auto;
+    margin-left: auto;
+}
+.body{
+    background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+}

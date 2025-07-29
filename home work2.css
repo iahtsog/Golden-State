@@ -1,0 +1,33 @@
+#form{
+     border: 1px solid #e2e2e2;
+    width: 350px ;
+    padding: 30px ;
+    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+*{
+   box-sizing: border-box; 
+}
+#form input{
+    width: 100% ;
+    margin-bottom: 10px ;
+    padding: 10px ;
+}
+#input{ 
+    background-color: rgb(38, 219, 38);
+    border-radius: 10px;
+    font-size: 16px;
+}
+.h4{
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#p{
+    font-size: 28px;
+    margin-left: 90px;
+}
