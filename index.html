@@ -1,34 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
-  <link rel="stylesheet" href="home woork.css">
-  <title>Stepen Curry</title>
-</head>
-<body>
-  <form id="form"> 
-  <label>Name</label>
-  <input type="text">
-  <label>Age</label>
-  <input type="number" value="0">
-  <label>Email</label>
-  <input type="email" placeholder="email">
-  <label>Password</label>
-  <input type="password" placeholder="password">
-  <br>
-  <div id="div">
-  Male
-  <input type="radio">
-  Female
-  <input type="radio">
-  </div>
-  <a href="home work3.html">
-  <input type="button" value="Create new account" id="input">
-  </a>
-  <div>
-    <p>don't have an account yet?
-    <a href="home work2.html" class="log" >log in</a>
+<meta charset="UTF-8">
+<title>Эрэн сурвалжлах</title>
 
-</p>  </div>
-  </form>
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+/* HEADER */
+.header {
+    background: #2d3e9f;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.title {
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.right {
+    margin-left: auto;
+    display: flex;
+    gap: 15px;
+}
+
+/* SEARCH */
+.search-box {
+    display: flex;
+    padding: 15px;
+    background: #eee;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+.search-box button {
+    background: #2d8cff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+}
+
+/* GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.popup img {
+    width: 120px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">🚓</div>
+    <div class="title">ЦАГДААГИЙН<br>ЕРӨНХИЙ ГАЗАР</div>
+    <div class="right">
+        <span>en</span>
+        <span>☰</span>
+    </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <input type="text" id="search" placeholder="Хайх үгээ бичих...">
+    <button onclick="search()">ХАЙХ</button>
+</div>
+
+<!-- LIST -->
+<div class="container" id="list"></div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">✖</span>
+        <div id="detail"></div>
+    </div>
+</div>
+
+<script>
+let data = [
+{ name:"Дашмягмар", age:16, gender:"Эр", parent:"Дашмягмар", phone:"94341707", img:"blob:https://www.facebook.com/18257cf5-5b41-43b1-83ef-065c5b72011d"},
+{ name:"Ганбагана ", age:16, gender:"Эр", parent:"Ганбагана", phone:"94845112", img:"blob:https://www.facebook.com/e5729804-3c6e-4008-bd2c-a73339a34d55"},
+{ name:"Дагвадорж", age:16, gender:"Эр", parent:"Дагвадорж", phone:"95151940", img:"blob:https://www.facebook.com/09229384-f78a-4384-9e1e-f6c6bef2362a"},
+{ name:"Баярсайхан", age:16, gender:"Эр", parent:"Баярсайхан", phone:"89353541", img:"blob:https://www.facebook.com/6a193822-93da-46ba-a764-c1753555b348"},
+{ name:"Төгөлдөр ", age:16, gender:"Эр", parent:"Төгөлдөр", phone:"99935316", img:"blob:https://www.facebook.com/4fe8389f-f669-4eb5-8a93-411988cf8d5a"},
+{ name:"Бат-Өлзий ", age:16, gender:"Эр", parent:"Бат-Өлзий", phone:"95356047", img:"blob:https://www.facebook.com/80a4cab1-a2ce-4db7-a5ee-115232db8af7"}
+];
+
+let filtered = data;
+
+function show(){
+    let html="";
+    filtered.forEach((d,i)=>{
+        html+=`
+        <div class="card" onclick="openPopup(${i})">
+            <img src="${d.img}">
+            <p>${d.name}</p>
+        </div>`;
+    });
+    document.getElementById("list").innerHTML=html;
+}
+
+function openPopup(i){
+    let d=filtered[i];
+    document.getElementById("detail").innerHTML=`
+        <img src="${d.img}">
+        <p><b>Эцэг:</b> ${d.parent}</p>
+        <p><b>Нэр:</b> ${d.name}</p>
+        <p><b>Нас:</b> ${d.age}</p>
+        <p><b>Хүйс:</b> ${d.gender}</p>
+        <p><b>Утас:</b> ${d.phone}</p>
+        <br>
+        <p>Мэдээлэл байвал холбогдоно уу.</p>
+    `;
+    document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+function search(){
+    let value=document.getElementById("search").value.toLowerCase();
+    filtered=data.filter(d=>d.name.toLowerCase().includes(value));
+    show();
+}
+
+show();
+</script>
+
 </body>
 </html>
+```
